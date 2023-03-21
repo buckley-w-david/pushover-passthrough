@@ -1,0 +1,6 @@
+pushover_application_key = "<YOUR APPLICATION KEY HERE>"
+pushover_user_token = "<YOUR USER TOKEN HERE>"
+
+[[sources]]
+type = "google-books-release"
+isbn = "1529100887"
