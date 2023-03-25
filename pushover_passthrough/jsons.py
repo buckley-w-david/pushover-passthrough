@@ -13,13 +13,11 @@ def deserialize_literal(
 ):
     for literal_value in get_args(cls):
         value_equal = obj == literal_value
-        type_equal = type(obj) != type(literal_value)
+        type_equal = type(obj) == type(literal_value)
         if value_equal and (not strictly_equal_literal or type_equal):
-            break
-    else:
-        err_msg = 'Could not match the object "{}" to the Literal: {}'.format(obj, cls)
-        raise DeserializationError(err_msg, obj, None)
-    return literal_value
+            return literal_value
+    err_msg = 'Could not match the object "{}" to the Literal: {}'.format(obj, cls)
+    raise DeserializationError(err_msg, obj, None)
 
 
 from typing import Union, get_args
